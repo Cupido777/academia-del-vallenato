@@ -11,340 +11,152 @@
     <meta property="og:image" content="assets/images/academia-vallenato-og.jpg">
     <meta property="og:url" content="https://www.academiadelvallenato.com">
     <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="stats-styles.css">
+    <style>
+        /* Estilos de respaldo en caso de que el CSS no cargue */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f7f2;
+            color: #333;
+        }
+        
+        .header {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #d4af37 0%, #c44536 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #d4af37;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Botón de WhatsApp -->
-    <a href="https://wa.me/573001234567" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Panel de estadísticas (solo visible para administradores) -->
-    <div id="stats-panel" class="stats-panel">
-        <div class="stats-header">
-            <h3>Estadísticas del Sitio</h3>
-            <button id="close-stats" class="close-stats">&times;</button>
-        </div>
-        <div class="stats-content">
-            <div class="stat-item">
-                <span class="stat-label">Visitas totales:</span>
-                <span id="total-visits" class="stat-value">0</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Páginas más visitadas:</span>
-                <ul id="top-pages" class="stat-list"></ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header -->
+    <!-- Header simplificado para prueba -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/images/logo-academia-vallenato.png" alt="Academia del Vallenato" class="logo-img">
-                        <span class="logo-text">Academia del Vallenato</span>
+                    <a href="index.html" style="display: flex; align-items: center; text-decoration: none; color: #2c3e50;">
+                        <div style="width: 50px; height: 50px; background: #d4af37; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; color: white; font-weight: bold;">AV</div>
+                        <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.25rem;">Academia del Vallenato</span>
                     </a>
-                </div>
-                <nav class="nav">
-                    <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link active" data-section="home">Inicio</a></li>
-                        <li><a href="pages/servicios.html" class="nav-link" data-section="services">Servicios</a></li>
-                        <li><a href="pages/clases.html" class="nav-link" data-section="classes">Clases</a></li>
-                        <li><a href="pages/musica-en-vivo.html" class="nav-link" data-section="live-music">Música en Vivo</a></li>
-                        <li><a href="pages/instrumentos.html" class="nav-link" data-section="instruments">Instrumentos</a></li>
-                        <li><a href="pages/contacto.html" class="nav-link" data-section="contact">Contacto</a></li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <div class="language-selector">
-                        <button id="language-toggle" class="language-btn">
-                            <span class="language-flag">🇪🇸</span>
-                            <span class="language-text">ES</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="language-dropdown">
-                            <button class="language-option" data-lang="es">🇪🇸 Español</button>
-                            <button class="language-option" data-lang="en">🇺🇸 English</button>
-                        </div>
-                    </div>
-                    <button class="menu-toggle" id="menu-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
+    <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-i18n="hero.title">Descubre el Alma del Vallenato</h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">Aprende los secretos del acordeón, la caja y la guacharaca con los mejores maestros de la música colombiana.</p>
-                <div class="hero-actions">
-                    <a href="pages/clases.html" class="btn btn-primary" data-i18n="hero.cta1">Ver Clases</a>
-                    <a href="pages/contacto.html" class="btn btn-secondary" data-i18n="hero.cta2">Contactar</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <a href="#about" class="scroll-down">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about section-padding" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="about.title">Sobre la Academia</h2>
-                <p class="section-subtitle" data-i18n="about.subtitle">Preservando y enseñando la tradición vallenata desde 2010</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3 data-i18n="about.mission.title">Nuestra Misión</h3>
-                    <p data-i18n="about.mission.text">Formar músicos integrales en el género vallenato, preservando sus raíces tradicionales mientras incorporamos técnicas modernas de enseñanza.</p>
-                    
-                    <h3 data-i18n="about.vision.title">Nuestra Visión</h3>
-                    <p data-i18n="about.vision.text">Ser el centro de enseñanza de vallenato más reconocido de Colombia, formando a las nuevas generaciones de acordeoneros y músicos tradicionales.</p>
-                    
-                    <h3 data-i18n="about.history.title">Nuestra Historia</h3>
-                    <p data-i18n="about.history.text">Fundada en 2010 por el maestro acordeonero Rafael Martínez, la Academia del Vallenato ha formado a más de 500 músicos que hoy en día llevan nuestra tradición por todo el mundo.</p>
-                </div>
-                <div class="about-image">
-                    <img src="assets/images/acordeon-vallenato.jpg" alt="Acordeón vallenato" class="about-img">
-                </div>
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Descubre el Alma del Vallenato</h1>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Aprende los secretos del acordeón, la caja y la guacharaca con los mejores maestros de la música colombiana.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#clases" class="btn" style="background: white; color: #d4af37;">Ver Clases</a>
+                <a href="#contacto" class="btn" style="background: transparent; border: 2px solid white;">Contactar</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services section-padding bg-light">
+    <!-- Servicios Section -->
+    <section style="padding: 80px 0;">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="services.title">Nuestros Servicios</h2>
-                <p class="section-subtitle" data-i18n="services.subtitle">Todo lo que necesitas para tu formación musical</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: #2c3e50;">Nuestros Servicios</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Servicio 1 -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #f9f7f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: #d4af37; font-size: 2rem;">
                         <i class="fas fa-music"></i>
                     </div>
-                    <h3 class="service-title" data-i18n="services.pedagogy.title">Pedagogía Musical</h3>
-                    <p class="service-description" data-i18n="services.pedagogy.description">Metodología especializada para niños, jóvenes y adultos. Aprende a tu ritmo con nuestro sistema progresivo.</p>
-                    <a href="pages/servicios.html#pedagogia" class="service-link" data-i18n="services.learnMore">Más información</a>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Pedagogía Musical</h3>
+                    <p style="color: #666; line-height: 1.6;">
+                        Metodología especializada para niños, jóvenes y adultos. Aprende a tu ritmo con nuestro sistema progresivo.
+                    </p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
+                <!-- Servicio 2 -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #f9f7f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: #d4af37; font-size: 2rem;">
                         <i class="fas fa-guitar"></i>
                     </div>
-                    <h3 class="service-title" data-i18n="services.classes.title">Clases de Música</h3>
-                    <p class="service-description" data-i18n="services.classes.description">Clases prácticas de acordeón, caja vallenata, guacharaca, bajo eléctrico y canto. Enfoque 100% práctico.</p>
-                    <a href="pages/clases.html" class="service-link" data-i18n="services.learnMore">Más información</a>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Clases de Música</h3>
+                    <p style="color: #666; line-height: 1.6;">
+                        Clases prácticas de acordeón, caja vallenata, guacharaca, bajo eléctrico y canto. Enfoque 100% práctico.
+                    </p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">
+                <!-- Servicio 3 -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #f9f7f2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; color: #d4af37; font-size: 2rem;">
                         <i class="fas fa-microphone"></i>
                     </div>
-                    <h3 class="service-title" data-i18n="services.liveMusic.title">Música en Vivo</h3>
-                    <p class="service-description" data-i18n="services.liveMusic.description">Contrata nuestras agrupaciones vallenatas para eventos privados, bodas, fiestas y presentaciones especiales.</p>
-                    <a href="pages/musica-en-vivo.html" class="service-link" data-i18n="services.learnMore">Más información</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Instruments -->
-    <section class="instruments-preview section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="instruments.title">Instrumentos Vallenatos</h2>
-                <p class="section-subtitle" data-i18n="instruments.subtitle">Encuentra los mejores instrumentos para tu práctica musical</p>
-            </div>
-            <div class="instruments-grid">
-                <!-- Instrumento 1 -->
-                <div class="instrument-card">
-                    <div class="instrument-image">
-                        <img src="assets/images/acordeon-hohner.jpg" alt="Acordeón Hohner">
-                    </div>
-                    <div class="instrument-info">
-                        <h3 class="instrument-name" data-i18n="instruments.accordion.name">Acordeón Hohner Corona II</h3>
-                        <p class="instrument-description" data-i18n="instruments.accordion.description">Acordeón profesional de 34 notas, ideal para vallenato tradicional.</p>
-                        <div class="instrument-price">
-                            <span class="price" data-i18n="instruments.accordion.price">$4.500.000 COP</span>
-                        </div>
-                        <div class="instrument-actions">
-                            <a href="pages/instrumentos.html#acordeon-hohner" class="btn btn-outline" data-i18n="instruments.viewDetails">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Instrumento 2 -->
-                <div class="instrument-card">
-                    <div class="instrument-image">
-                        <img src="assets/images/caja-vallenata.jpg" alt="Caja Vallenata">
-                    </div>
-                    <div class="instrument-info">
-                        <h3 class="instrument-name" data-i18n="instruments.caja.name">Caja Vallenata Profesional</h3>
-                        <p class="instrument-description" data-i18n="instruments.caja.description">Caja artesanal en madera de roble con parches de cuero natural.</p>
-                        <div class="instrument-price">
-                            <span class="price" data-i18n="instruments.caja.price">$350.000 COP</span>
-                        </div>
-                        <div class="instrument-actions">
-                            <a href="pages/instrumentos.html#caja-vallenata" class="btn btn-outline" data-i18n="instruments.viewDetails">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Instrumento 3 -->
-                <div class="instrument-card">
-                    <div class="instrument-image">
-                        <img src="assets/images/guacharaca.jpg" alt="Guacharaca">
-                    </div>
-                    <div class="instrument-info">
-                        <h3 class="instrument-name" data-i18n="instruments.guacharaca.name">Guacharaca Tradicional</h3>
-                        <p class="instrument-description" data-i18n="instruments.guacharaca.description">Guacharaca artesanal en madera de guayacán con rascador de metal.</p>
-                        <div class="instrument-price">
-                            <span class="price" data-i18n="instruments.guacharaca.price">$120.000 COP</span>
-                        </div>
-                        <div class="instrument-actions">
-                            <a href="pages/instrumentos.html#guacharaca" class="btn btn-outline" data-i18n="instruments.viewDetails">Ver detalles</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-actions">
-                <a href="pages/instrumentos.html" class="btn btn-primary" data-i18n="instruments.seeAll">Ver todos los instrumentos</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials section-padding bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="testimonials.title">Testimonios</h2>
-                <p class="section-subtitle" data-i18n="testimonials.subtitle">Lo que dicen nuestros estudiantes</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text" data-i18n="testimonials.testimonial1.text">"La Academia del Vallenato transformó mi forma de entender la música. En 6 meses ya podía tocar varias canciones tradicionales."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name" data-i18n="testimonials.testimonial1.author">Carlos Mendoza</span>
-                            <span class="author-role" data-i18n="testimonials.testimonial1.role">Estudiante de acordeón</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text" data-i18n="testimonials.testimonial2.text">"Los profesores son excelentes y la metodología es muy práctica. Mi hijo de 10 años ya toca la guacharaca como un profesional."</p>
-                        <div class="testimonial-author">
-                            <span class="author-name" data-i18n="testimonials.testimonial2.author">María González</span>
-                            <span class="author-role" data-i18n="testimonials.testimonial2.role">Madre de estudiante</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta section-padding">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title" data-i18n="cta.title">¿Listo para comenzar tu viaje musical?</h2>
-                <p class="cta-text" data-i18n="cta.text">Únete a nuestra comunidad y descubre el fascinante mundo del vallenato.</p>
-                <div class="cta-actions">
-                    <a href="pages/contacto.html" class="btn btn-light" data-i18n="cta.contact">Contáctanos</a>
-                    <a href="pages/clases.html" class="btn btn-outline-light" data-i18n="cta.classes">Ver clases</a>
+                    <h3 style="color: #2c3e50; margin-bottom: 1rem;">Música en Vivo</h3>
+                    <p style="color: #666; line-height: 1.6;">
+                        Contrata nuestras agrupaciones vallenatas para eventos privados, bodas, fiestas y presentaciones especiales.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer style="background: #2c3e50; color: white; padding: 60px 0 20px;">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="assets/images/logo-academia-vallenato.png" alt="Academia del Vallenato" class="footer-logo-img">
-                        <span class="footer-logo-text">Academia del Vallenato</span>
-                    </div>
-                    <p class="footer-description" data-i18n="footer.description">Formando a los músicos vallenatos del futuro desde 2010.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title" data-i18n="footer.links.title">Enlaces rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html" data-i18n="footer.links.home">Inicio</a></li>
-                        <li><a href="pages/servicios.html" data-i18n="footer.links.services">Servicios</a></li>
-                        <li><a href="pages/clases.html" data-i18n="footer.links.classes">Clases</a></li>
-                        <li><a href="pages/instrumentos.html" data-i18n="footer.links.instruments">Instrumentos</a></li>
-                        <li><a href="pages/contacto.html" data-i18n="footer.links.contact">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title" data-i18n="footer.contact.title">Contacto</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span data-i18n="footer.contact.address">Calle 45 # 12-34, Valledupar, Colombia</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+57 300 123 4567</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>info@academiadelvallenato.com</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title" data-i18n="footer.newsletter.title">Boletín informativo</h3>
-                    <p class="footer-description" data-i18n="footer.newsletter.description">Suscríbete para recibir noticias sobre cursos y eventos.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Tu correo electrónico" required data-i18n-placeholder="footer.newsletter.placeholder">
-                        <button type="submit" data-i18n="footer.newsletter.subscribe">Suscribirse</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p class="copyright" data-i18n="footer.copyright">© 2023 Academia del Vallenato. Todos los derechos reservados.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#" data-i18n="footer.privacy">Política de privacidad</a>
-                        <a href="#" data-i18n="footer.terms">Términos de servicio</a>
-                    </div>
-                </div>
+            <div style="text-align: center;">
+                <p>&copy; 2023 Academia del Vallenato. Todos los derechos reservados.</p>
+                <p style="margin-top: 2rem; color: #ccc;">
+                    Formando a los músicos vallenatos del futuro desde 2010.
+                </p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="stats-system.js"></script>
+    <!-- Scripts -->
+    <script>
+        // Script básico de funcionalidad
+        console.log('Academia del Vallenato - Sitio cargado correctamente');
+        
+        // Detectar si hay errores de carga
+        window.addEventListener('error', function(e) {
+            console.error('Error detectado:', e.error);
+        });
+        
+        // Mostrar mensaje de bienvenida
+        setTimeout(function() {
+            console.log('Bienvenido a la Academia del Vallenato');
+        }, 1000);
+    </script>
 </body>
 </html>
