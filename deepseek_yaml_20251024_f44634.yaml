@@ -1,0 +1,21 @@
+# Configuración para GitHub Pages
+title: "Academia del Vallenato"
+description: "Aprende vallenato en la Academia del Vallenato. Clases de acordeón, caja y guacharaca. Venta de instrumentos y servicios de música en vivo."
+baseurl: ""
+url: "https://www.academiadelvallenato.com"
+
+# Configuración de Jekyll (si se usa)
+theme: null
+plugins:
+  - jekyll-sitemap
+
+# Configuración personalizada
+academia:
+  name: "Academia del Vallenato"
+  founded: 2010
+  location: "Valledupar, Colombia"
+  email: "info@academiadelvallenato.com"
+  phone: "+57 300 123 4567"
+
+# Configuración de SEO
+google_analytics: null  # Añadir ID de Google Analytics si se desea
