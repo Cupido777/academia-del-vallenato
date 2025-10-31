@@ -1,0 +1,20 @@
+/ (raíz del proyecto)
+├── _config.yml
+├── index.html
+├── _layouts/
+│   └── default.html
+├── _includes/
+│   ├── header.html
+│   ├── footer.html
+├── pages/
+│   ├── clases.html
+│   ├── instrumentos.html
+│   ├── musica-en-vivo.html
+│   └── contacto.html
+└── assets/
+    ├── css/
+    │   ├── styles.css
+    │   └── stats-styles.css
+    ├── js/
+    │   └── main.js
+    └── images/
