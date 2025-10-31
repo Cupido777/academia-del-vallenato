@@ -1,21 +1,56 @@
-# Configuración para GitHub Pages
-title: "Academia del Vallenato"
-description: "Aprende vallenato en la Academia del Vallenato. Clases de acordeón, caja y guacharaca. Venta de instrumentos y servicios de música en vivo."
-baseurl: ""
-url: "https://www.academiadelvallenato.com"
+# ==============================
+# CONFIGURACIÓN GENERAL DEL SITIO
+# ==============================
+title: "Academia del Vallenato Cartagena"
+description: "Aprende vallenato en la Academia del Vallenato Cartagena. Clases de acordeón, caja y guacharaca. Venta de instrumentos y servicios de música en vivo."
+baseurl: ""  # No modificar si se publica en la raíz del dominio
+url: "https://www.academiadelvallenatocartagena.com"
 
-# Configuración de Jekyll (si se usa)
+# ==============================
+# CONFIGURACIÓN DE JEKYLL / GITHUB PAGES
+# ==============================
 theme: null
 plugins:
   - jekyll-sitemap
+  - jekyll-seo-tag
 
-# Configuración personalizada
+# ==============================
+# METADATOS PERSONALIZADOS
+# ==============================
 academia:
-  name: "Academia del Vallenato"
+  name: "Academia del Vallenato Cartagena"
   founded: 2010
-  location: "Valledupar, Colombia"
-  email: "info@academiadelvallenato.com"
+  location: "Cartagena, Colombia"
+  email: "info@academiadelvallenatocartagena.com"
   phone: "+57 300 123 4567"
 
-# Configuración de SEO
-google_analytics: null  # Añadir ID de Google Analytics si se desea
+# ==============================
+# CONFIGURACIÓN DE SEO
+# ==============================
+google_analytics: null   # Agrega tu ID (ej: UA-XXXXX-Y o G-XXXXXXXXXX) si usas GA
+lang: "es"
+timezone: "America/Bogota"
+
+# ==============================
+# OPCIONES DE BUILD Y RENDIMIENTO
+# ==============================
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+exclude:
+  - node_modules
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+
+# ==============================
+# CONFIGURACIÓN DEL SITEMAP
+# ==============================
+sitemap:
+  filename: "sitemap.xml"
+  exclude:
+    - "/404.html"
