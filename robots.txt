@@ -35,4 +35,3 @@ Disallow: /
 
 # Sitemap principal
 Sitemap: https://www.academiadelvallenatocartagena.com/sitemap.xml
-=== FIN ARCHIVO ===
