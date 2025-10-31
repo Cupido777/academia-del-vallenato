@@ -1,75 +1,97 @@
-=== ARCHIVO: /_config.yml ===
+=== ARCHIVO: _config.yml ===
+# CONFIGURACIÓN ACADEMIA DEL VALLENATO CARTAGENA
+# Archivo de configuración principal - NO MODIFICAR MANUALMENTE
 
-=====
-CONFI
-=================
-
+# ======================
+# CONFIGURACIÓN BÁSICA
+# ======================
 title: "Academia del Vallenato Cartagena"
 description: "Aprende vallenato en la Academia del Vallenato Cartagena. Clases de acordeón, caja y guacharaca. Venta de instrumentos y servicios de música en vivo."
-baseurl: "" #
-URL: " https://www.academia
-"
+baseurl: ""
+url: "https://www.academiadelvallenatocartagena.com"
 
-==================
-CONFIGURAR
-===
+# ======================
+# CONFIGURACIÓN JEKYLL
+# ======================
+theme: null
+plugins: []
+markdown: kramdown
 
-Tema:
-complemento nulo
+kramdown:
+  input: GFM
+  hard_wrap: false
 
-Jekyll
-
-Jekyll
-
-============
-METRO
-===
-
+# ======================
+# INFORMACIÓN ACADEMIA
+# ======================
 academia:
-nombre: "
-Fundada en 2010.
-Ubicación : [Insertar ubicación]
-Correo electrónico: "info@academiadeinfo@academiadelvallenatocartagena.com
-"
-fon
+  nombre: "Academia del Vallenato Cartagena"
+  fundacion: 2010
+  ubicacion: "Cartagena, Colombia"
+  email: "info@academiadelvallenatocartagena.com"
+  telefono: "+57 300 123 4567"
 
-======================
-CONFIGURACIÓN DE SEO
-==============================
-
-google_analytics: null # Agrega tu ID si usas Google Analytics
+# ======================
+# CONFIGURACIÓN SEO
+# ======================
+google_analytics: null # AGREGAR ID DE GOOGLE ANALYTICS SI SE REQUIERE
 lang: "es"
 timezone: "America/Bogota"
+encoding: "UTF-8"
 
-==============================
-OPCIONES DE BUILD Y RENDIMIENTO
-==
+# ======================
+# OPCIONES BUILD
+# ======================
+exclude:
+  - "node_modules"
+  - "README.md"
+  - "Gemfile"
+  - "Gemfile.lock"
+  - "package.json"
+  - "package-lock.json"
+  - "vendor"
+  - ".git"
+  - ".svn"
 
-markdown: kramdown
-kramdown:
-entrada: GFM
-ajuste de línea duro: falso
+include:
+  - "_pages"
+  - "_includes"
 
-excluir:
+# ======================
+# CONFIGURACIÓN SITEMAP
+# ======================
+sitemap:
+  filename: "sitemap.xml"
+  exclude:
+    - "/404.html"
+    - "/assets/js/"
+    - "/assets/css/"
 
-módulos de nodo
+# ======================
+# CONFIGURACIÓN PÁGINAS
+# ======================
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+      permalink: "/:basename/"
 
-README.md
+# ======================
+# OPTIMIZACIÓN RENDIMIENTO
+# ======================
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
 
-Gemfile
-
-Gemfile.lock
-
-package.json
-
-package-lock.json
-
-==============================
-CONFIGURACIÓN DEL SITEMAP
-==============================
-
-mapa del sitio:
-nombre de archivo: "sitemap.xml"
-excluir:
-- "/404.html"
-=== FIN DEL ARCHIVO ===
+# ======================
+# CONFIGURACIÓN MULTI-IDIOMA
+# ======================
+languages: ["es", "en"]
+default_lang: "es"
+exclude_from_localization: ["assets", "images", "js", "css"]
+=== FIN ARCHIVO ===
