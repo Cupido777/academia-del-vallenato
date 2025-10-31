@@ -1,27 +1,29 @@
-# 🎶 Academia del Vallenato Cartagena - Sitio Web
+🎶 Academia del Vallenato Cartagena — Sitio Web
 
-Sitio web oficial de la **Academia del Vallenato Cartagena**, dedicada a enseñar y promover la música tradicional colombiana.  
-Ofrecemos clases de **acordeón, caja y guacharaca**, además de servicios de **música en vivo** y **venta de instrumentos**.
+Sitio oficial de la Academia del Vallenato Cartagena. Enseñamos y promovemos la música tradicional colombiana: acordeón, caja y guacharaca. También ofrecemos música en vivo y venta de instrumentos.
 
-🌐 **Dominio oficial:** [www.academiadelvallenatocartagena.com](https://www.academiadelvallenatocartagena.com)
+Dominio: https://www.academiadelvallenatocartagena.com
 
----
+🚀 Resumen de características
 
-## 🚀 Características principales
+Diseño moderno, limpio y responsivo.
 
-- 🎨 Diseño moderno, limpio y responsivo  
-- 🌍 Sistema bilingüe (Español / Inglés)  
-- ⚡ SEO avanzado y optimización para buscadores  
-- 💳 Integración con pasarelas de pago  
-- 📊 Sistema de estadísticas local (sin servidor)  
-- 🧩 Código modular y escalable  
-- 🪄 Compatible con GitHub Pages / Jekyll  
+Sistema bilingüe: Español / Inglés.
 
----
+SEO y optimización para buscadores.
 
-## 📂 Estructura del proyecto
+Integración con pasarelas de pago.
 
-```bash
+Estadísticas locales (sin servidor).
+
+Código modular y escalable.
+
+Compatible con GitHub Pages / Jekyll.
+
+📂 Estructura del proyecto (propuesta)
+
+Mantengo la estructura original propuesta; la organización facilita GitHub Pages multipágina:
+
 /
 ├── index.html
 ├── pages/
@@ -43,3 +45,29 @@ Ofrecemos clases de **acordeón, caja y guacharaca**, además de servicios de **
 ├── CNAME
 ├── _config.yml
 └── README.md
+
+✅ Buenas prácticas recomendadas (implementación futura)
+
+Minificar HTML/CSS/JS conservando comentarios clave para el propietario.
+
+Consolidar y eliminar reglas/funciones duplicadas.
+
+Aplicar carga diferida (defer/async), preload para recursos críticos.
+
+Optimizar el Critical Render Path y el orden de carga.
+
+Mantener rutas relativas coherentes para GitHub Pages.
+
+Revisar y validar enlaces entre páginas antes de publicar.
+
+📌 Notas para el propietario
+
+Cuando me envíes cada archivo, lo optimizo y te devuelvo manteniendo nombre/estructura.
+
+Conservaré la lógica de negocio y las rutas originales salvo que indiques lo contrario.
+
+Si deseas, puedo generar una rama lista para desplegar en GitHub Pages.
+
+Contacto / Soporte
+
+Para cambios mayores (integraciones de pago, sistemas de estadísticas avanzadas o generación de sitemap dinámico) indícame los archivos involucrados y procederé archivo por archivo.
