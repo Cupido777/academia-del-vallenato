@@ -1,0 +1,43 @@
+# ================================
+# robots.txt – Academia del Vallenato Cartagena
+# Dominio: https://www.academiadelvallenatocartagena.com
+# Última actualización: 2025-10-31
+# ================================
+
+# --- Reglas generales ---
+User-agent: *
+Allow: /
+
+# Evitar rastreo de archivos sensibles o innecesarios
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /includes/
+Disallow: /private/
+
+# Permitir acceso a archivos esenciales
+Allow: /assets/
+Allow: /pages/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# --- Reglas específicas para bots ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+# --- Sitemap principal ---
+Sitemap: https://www.academiadelvallenatocartagena.com/sitemap.xml
+
+# --- Información adicional ---
+# Este archivo ayuda a los motores de búsqueda a rastrear
+# y posicionar correctamente el contenido del sitio web.
