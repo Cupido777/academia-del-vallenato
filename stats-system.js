@@ -1,174 +1,151 @@
 === ARCHIVO: stats-system.js ===
-/* ==========================================================
-   SISTEMA DE ESTADÍSTICAS — ACADEMIA DEL VALLENATO
-   ----------------------------------------------------------
-   Registra visitas, clics e interacciones del sitio.
-   Permite ver las métricas en un panel visual.
-   ========================================================== */
-
+/* SISTEMA ESTADÍSTICAS - ACADEMIA DEL VALLENATO CARTAGENA */
 class StatsSystem {
   constructor() {
-    this.stats = {
-      totalVisits: 0,
-      pageViews: {},
-      clickEvents: {},
-      lastVisit: null
-    };
+    this.stats = { totalVisits: 0, pageViews: {}, clickEvents: {}, lastVisit: null };
     this.init();
   }
 
-  // Inicialización general
+  // Inicialización optimizada
   init() {
     this.loadStats();
     this.trackVisit();
     this.trackClicks();
     this.setupStatsPanel();
-
-    // Guardar estadísticas al salir
     window.addEventListener("beforeunload", () => this.saveStats());
   }
 
-  // Carga los datos previos del almacenamiento local
+  // Carga datos desde localStorage
   loadStats() {
-    const saved = localStorage.getItem("academia-vallenato-stats");
-    if (saved) this.stats = JSON.parse(saved);
+    const s = localStorage.getItem("academia-vallenato-stats");
+    if (s) this.stats = JSON.parse(s);
   }
 
-  // Guarda las estadísticas actualizadas
+  // Guarda estadísticas
   saveStats() {
     localStorage.setItem("academia-vallenato-stats", JSON.stringify(this.stats));
   }
 
-  // Registra visitas a la web
+  // Registra visitas optimizado
   trackVisit() {
-    const page = window.location.pathname;
-    const now = new Date().toISOString();
-
+    const p = window.location.pathname;
+    const n = new Date().toISOString();
+    
     this.stats.totalVisits++;
-    if (!this.stats.pageViews[page]) this.stats.pageViews[page] = 0;
-    this.stats.pageViews[page]++;
-    this.stats.lastVisit = now;
-
-    console.log(`📊 Visitas totales: ${this.stats.totalVisits}`);
-    console.log("📄 Páginas vistas:", this.stats.pageViews);
-
+    this.stats.pageViews[p] = (this.stats.pageViews[p] || 0) + 1;
+    this.stats.lastVisit = n;
+    
     this.saveStats();
   }
 
-  // Registra clics en enlaces, botones o productos
+  // Seguimiento de clics optimizado
   trackClicks() {
-    const trackedLinks = document.querySelectorAll(
-      "a[data-section], .btn, .service-link, .instrument-actions a"
-    );
-    trackedLinks.forEach(link => {
-      link.addEventListener("click", () => {
-        const section = link.getAttribute("data-section") || link.textContent.trim();
-        this.stats.clickEvents[section] = (this.stats.clickEvents[section] || 0) + 1;
-        console.log(`🖱️ Clic en: ${section}`);
+    // Enlaces principales
+    const t = document.querySelectorAll("a[data-section], .btn, .service-link, .instrument-actions a");
+    t.forEach(l => {
+      l.addEventListener("click", () => {
+        const s = l.getAttribute("data-section") || l.textContent.trim();
+        this.stats.clickEvents[s] = (this.stats.clickEvents[s] || 0) + 1;
         this.saveStats();
-      });
+      }, { passive: true });
     });
 
-    // Seguimiento de compras
-    const buyButtons = document.querySelectorAll(".buy-btn, .purchase-btn");
-    buyButtons.forEach(btn => {
+    // Botones de compra
+    const b = document.querySelectorAll(".buy-btn, .purchase-btn");
+    b.forEach(btn => {
       btn.addEventListener("click", () => {
-        const product = btn.getAttribute("data-product") || "Producto desconocido";
-        const key = `compra_${product}`;
-        this.stats.clickEvents[key] = (this.stats.clickEvents[key] || 0) + 1;
-        console.log(`🛒 Intento de compra: ${product}`);
+        const p = btn.getAttribute("data-product") || "Producto desconocido";
+        const k = `compra_${p}`;
+        this.stats.clickEvents[k] = (this.stats.clickEvents[k] || 0) + 1;
         this.saveStats();
-      });
+      }, { passive: true });
     });
   }
 
-  // Configura el panel visual de estadísticas
+  // Panel de estadísticas optimizado
   setupStatsPanel() {
     this.createStatsButton();
+    
+    const c = document.getElementById("close-stats");
+    if (c) c.addEventListener("click", () => this.hideStatsPanel());
 
-    const closeBtn = document.getElementById("close-stats");
-    if (closeBtn) closeBtn.addEventListener("click", () => this.hideStatsPanel());
-
-    // Mostrar panel con doble clic en el logo
-    const logo = document.querySelector(".logo");
-    if (logo) {
-      let count = 0;
-      let timer;
-      logo.addEventListener("click", () => {
+    // Doble clic en logo para mostrar panel
+    const l = document.querySelector(".logo");
+    if (l) {
+      let count = 0, t;
+      l.addEventListener("click", () => {
         count++;
         if (count === 1) {
-          timer = setTimeout(() => (count = 0), 500);
+          t = setTimeout(() => count = 0, 500);
         } else if (count === 2) {
-          clearTimeout(timer);
+          clearTimeout(t);
           count = 0;
           this.toggleStatsPanel();
         }
-      });
+      }, { passive: true });
     }
   }
 
-  // Crea el botón flotante del panel
+  // Botón flotante del panel
   createStatsButton() {
-    const btn = document.createElement("button");
-    btn.id = "stats-toggle";
-    btn.className = "stats-toggle";
-    btn.innerHTML = '<i class="fas fa-chart-bar"></i>';
-    btn.setAttribute("aria-label", "Mostrar estadísticas");
-    btn.addEventListener("click", () => this.toggleStatsPanel());
-    document.body.appendChild(btn);
+    const b = document.createElement("button");
+    b.id = "stats-toggle";
+    b.className = "stats-toggle";
+    b.innerHTML = '<i class="fas fa-chart-bar"></i>';
+    b.setAttribute("aria-label", "Mostrar estadísticas");
+    b.addEventListener("click", () => this.toggleStatsPanel());
+    document.body.appendChild(b);
   }
 
-  // Alterna la visibilidad del panel
+  // Alternar visibilidad del panel
   toggleStatsPanel() {
-    const panel = document.getElementById("stats-panel");
-    panel.classList.contains("visible") ? this.hideStatsPanel() : this.showStatsPanel();
+    const p = document.getElementById("stats-panel");
+    p.classList.contains("visible") ? this.hideStatsPanel() : this.showStatsPanel();
   }
 
-  // Muestra el panel con los datos actualizados
+  // Mostrar panel con datos actualizados
   showStatsPanel() {
-    const panel = document.getElementById("stats-panel");
-    const totalEl = document.getElementById("total-visits");
-    const pagesEl = document.getElementById("top-pages");
+    const p = document.getElementById("stats-panel");
+    const t = document.getElementById("total-visits");
+    const pg = document.getElementById("top-pages");
 
-    // Mostrar total de visitas
-    totalEl.textContent = this.stats.totalVisits.toLocaleString();
+    // Actualizar visitas totales
+    t.textContent = this.stats.totalVisits.toLocaleString();
 
-    // Mostrar páginas más vistas (máx. 5)
-    const sorted = Object.entries(this.stats.pageViews)
+    // Top 5 páginas más visitadas
+    const s = Object.entries(this.stats.pageViews)
       .sort((a, b) => b[1] - a[1])
       .slice(0, 5);
 
-    pagesEl.innerHTML = "";
-    sorted.forEach(([page, views]) => {
+    pg.innerHTML = "";
+    s.forEach(([page, views]) => {
       const li = document.createElement("li");
       li.innerHTML = `<span class="page-name">${this.getPageName(page)}</span>: <span class="page-views">${views}</span>`;
-      pagesEl.appendChild(li);
+      pg.appendChild(li);
     });
 
-    panel.classList.add("visible");
+    p.classList.add("visible");
+    p.removeAttribute("hidden");
   }
 
-  // Oculta el panel
+  // Ocultar panel
   hideStatsPanel() {
-    const panel = document.getElementById("stats-panel");
-    panel.classList.remove("visible");
+    const p = document.getElementById("stats-panel");
+    p.classList.remove("visible");
+    p.setAttribute("hidden", "true");
   }
 
-  // Traduce rutas en nombres legibles
+  // Traducción de rutas a nombres legibles
   getPageName(path) {
-    const names = {
-      "/": "Inicio",
-      "/index.html": "Inicio",
-      "/pages/servicios.html": "Servicios",
-      "/pages/clases.html": "Clases",
-      "/pages/musica-en-vivo.html": "Música en Vivo",
-      "/pages/instrumentos.html": "Instrumentos",
-      "/pages/contacto.html": "Contacto"
+    const n = {
+      "/": "Inicio", "/index.html": "Inicio", "/pages/servicios.html": "Servicios",
+      "/pages/clases.html": "Clases", "/pages/musica-en-vivo.html": "Música en Vivo",
+      "/pages/instrumentos.html": "Instrumentos", "/pages/contacto.html": "Contacto"
     };
-    return names[path] || path;
+    return n[path] || path;
   }
 
-  // Retorna todas las métricas (para integraciones futuras)
+  // Métodos para integraciones futuras
   getStats() {
     return {
       ...this.stats,
