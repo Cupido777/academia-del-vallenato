@@ -1,56 +1,75 @@
-# ==============================
-# CONFIGURACIÓN GENERAL DEL SITIO
-# ==============================
+=== ARCHIVO: /_config.yml ===
+
+=====
+CONFI
+=================
+
 title: "Academia del Vallenato Cartagena"
 description: "Aprende vallenato en la Academia del Vallenato Cartagena. Clases de acordeón, caja y guacharaca. Venta de instrumentos y servicios de música en vivo."
-baseurl: ""  # No modificar si se publica en la raíz del dominio
-url: "https://www.academiadelvallenatocartagena.com"
+baseurl: "" #
+URL: " https://www.academia
+"
 
-# ==============================
-# CONFIGURACIÓN DE JEKYLL / GITHUB PAGES
-# ==============================
-theme: null
-plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
+==================
+CONFIGURAR
+===
 
-# ==============================
-# METADATOS PERSONALIZADOS
-# ==============================
+Tema:
+complemento nulo
+
+Jekyll
+
+Jekyll
+
+============
+METRO
+===
+
 academia:
-  name: "Academia del Vallenato Cartagena"
-  founded: 2010
-  location: "Cartagena, Colombia"
-  email: "info@academiadelvallenatocartagena.com"
-  phone: "+57 300 123 4567"
+nombre: "
+Fundada en 2010.
+Ubicación : [Insertar ubicación]
+Correo electrónico: "info@academiadeinfo@academiadelvallenatocartagena.com
+"
+fon
 
-# ==============================
-# CONFIGURACIÓN DE SEO
-# ==============================
-google_analytics: null   # Agrega tu ID (ej: UA-XXXXX-Y o G-XXXXXXXXXX) si usas GA
+======================
+CONFIGURACIÓN DE SEO
+==============================
+
+google_analytics: null # Agrega tu ID si usas Google Analytics
 lang: "es"
 timezone: "America/Bogota"
 
-# ==============================
-# OPCIONES DE BUILD Y RENDIMIENTO
-# ==============================
+==============================
+OPCIONES DE BUILD Y RENDIMIENTO
+==
+
 markdown: kramdown
 kramdown:
-  input: GFM
-  hard_wrap: false
+entrada: GFM
+ajuste de línea duro: falso
 
-exclude:
-  - node_modules
-  - README.md
-  - Gemfile
-  - Gemfile.lock
-  - package.json
-  - package-lock.json
+excluir:
 
-# ==============================
-# CONFIGURACIÓN DEL SITEMAP
-# ==============================
-sitemap:
-  filename: "sitemap.xml"
-  exclude:
-    - "/404.html"
+módulos de nodo
+
+README.md
+
+Gemfile
+
+Gemfile.lock
+
+package.json
+
+package-lock.json
+
+==============================
+CONFIGURACIÓN DEL SITEMAP
+==============================
+
+mapa del sitio:
+nombre de archivo: "sitemap.xml"
+excluir:
+- "/404.html"
+=== FIN DEL ARCHIVO ===
