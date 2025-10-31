@@ -94,4 +94,3 @@ compress_html:
 languages: ["es", "en"]
 default_lang: "es"
 exclude_from_localization: ["assets", "images", "js", "css"]
-=== FIN ARCHIVO ===
