@@ -107,7 +107,7 @@ ul { list-style: none; } img { max-width: 100%; height: auto; display: block; }
 /* HERO SECTION OPTIMIZADA */
 .hero {
   position: relative; height: 100vh; min-height: 600px; display: flex; align-items: center;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/hero-bg.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.jpg') center/cover no-repeat;
   color: var(--white); overflow: hidden;
 }
 .hero-overlay {
