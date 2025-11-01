@@ -1,8 +1,0 @@
-# Archivo robots.txt para Academia del Vallenato Cartagena
-# Permite el acceso completo al sitio
-
-User-agent: *
-Allow: /
-
-# Enlace al sitemap principal
-Sitemap: https://www.academiadelvallenatocartagena.com/sitemap.xml
